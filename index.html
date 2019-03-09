@@ -41,12 +41,12 @@ function addMessages(message){
    $("#messages").append('<h4>'+message.name+' </h4><p>'+message.message+' </p>')
    }
 function getMessages(){
-  $.get('http://localhost:3000/messages', (data) => {
+  $.get('https://chilim.herokuapp.com/messages', (data) => {
    data.forEach(addMessages);
    })
  }
 function sendMessage(message){
-   $.post('http://localhost:3000/messages', message)
+   $.post('https://chilim.herokuapp.com/messages', message)
  }
  var socket = io();
 socket.on('message', addMessages)
