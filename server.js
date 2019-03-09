@@ -10,7 +10,8 @@ app.use(bodyParser.urlencoded({extended: false}))
 var Message = mongoose.model('Message',{
   name : String,
   message : String,
-}, { timestamps: {} });
+  updated_at: { type: Date, default: Date.now },
+})
 
 //
 
