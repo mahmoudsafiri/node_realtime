@@ -12,17 +12,16 @@ var Message = mongoose.model('Message',{
   message : String
 })
 
-//
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://admin:1234@cluster0-tjov6.mongodb.net/test?retryWrites=true";
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-//   const collection = client.db("real_time").collection("messages");
-//   // perform actions on the collection object
-//   client.close();
-// });
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://admin:1234@cluster0-tjov6.mongodb.net/test?retryWrites=true";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("real_time").collection("messages");
+  // perform actions on the collection object
+  client.close();
+});
 
-var dbUrl = 'mongodb+srv://admin:1234@cluster0-tjov6.mongodb.net/test?retryWrites=true'
+// var dbUrl = 'mongodb://username:password@ds257981.mlab.com:57981/simple-chat'
 app.get('/messages', (req, res) => {
   Message.find({},(err, messages)=> {
     res.send(messages);
@@ -41,9 +40,9 @@ app.post('/messages', (req, res) => {
 io.on('connection', () =>{
   console.log('a user is connected')
 })
-mongoose.connect(dbUrl ,{useMongoClient : true} ,(err) => {
-  console.log('mongodb connected',err);
-})
+// mongoose.connect(dbUrl ,{useMongoClient : true} ,(err) => {
+//   console.log('mongodb connected',err);
+// })
 // mongoose.connect("mongodb://localhost:27017/real_time");
 const port = process.env.PORT || 3000;
 var server = http.listen(port, () => {
