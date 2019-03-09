@@ -12,7 +12,7 @@ var Message = mongoose.model('Message',{
   message : String
 })
 
-const MongoClient = require(‘mongodb’).MongoClient;
+const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://admin:1234@cluster0-tjov6.mongodb.net/test?retryWrites=true";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
