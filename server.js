@@ -34,6 +34,7 @@ io.on('connection', () =>{
 //   console.log('mongodb connected',err);
 // })
 mongoose.connect("mongodb://localhost:27017/real_time");
-var server = http.listen(3000, () => {
+const port = process.env.PORT || 3000;
+var server = http.listen(port, () => {
   console.log('server is running on port', server.address().port);
 });
