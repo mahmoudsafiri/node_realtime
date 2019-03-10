@@ -89,11 +89,23 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
         background: #2422455c !important;
         width: 50%
   }
+  .counter{
+    position: absolute;
+    background: #4a4a4a;
+    color: #63e668;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .counter img{
+    width: 10px;
+  margin-left: 10px;
+  margin-right: 4px;
+  }
   </style>
 </head>
 <body>
 <div class="container">
-
+    <p class="counter"><img src="https://cdn-images-1.medium.com/max/1344/1*nZ9VwHTLxAfNCuCjYAkajg.png"><span id="counter"></span></p>
 
 
    <div id="messages">
@@ -113,7 +125,7 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
     margin-top: 45px;
     margin-bottom: 50px;
     "></p>
-    <p id="counter"></p>
+
 </div>
 <script>
 $(() => {
