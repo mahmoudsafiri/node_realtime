@@ -133,17 +133,17 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
 $(() => {
   var d = $('#messages');
   d.scrollTop(d.prop("scrollHeight"));
-  
+
     $("#send").click(()=>{
       if(!empty($("#name").val()) && !empty($("#message").val())){
           sendMessage({
              name: $("#name").val(),
-             message:$("#message").val()});
-           })
+             message:$("#message").val()
+           });
          getMessages();
       }
 
-    })
+    });
 function addMessages(message){
   // console.log(message);
    $("#messages").append('<div class="box"><h4>'+message.name+' <img class="avatar" src="https://vignette.wikia.nocookie.net/spaceinvaders/images/d/db/Crab_Invader.png/revision/latest?cb=20180814211211"></h4><p>'+message.message+' </p><span>'+message.updated_at+'</span></div>');
