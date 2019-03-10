@@ -10,22 +10,55 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
+<style>
+body{
+  background-color: #052731;
+}
+#messages{
+  font-weight: bold;
+}
+#messages h4{
+      color: #738c95;
+}
+#messages p {
+  color: #b1d401;
+  padding-left: 27px;
+  font-size: 15px;
+}
+.jumbotron{
+  background: #0a1f25;
+  position: fixed;
+  width: inherit;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.avatar{
+  width: 33px;
+  position: absolute;
+  margin-top: -19px;
+  margin-left: 2px;
+}
+</style>
 </head>
 <body>
 <div class="container">
- <br>
- <div class="jumbotron">
- <h1 class="display-4">Send Message</h1>
- <br>
- <input id = "name" class="form-control" placeholder="Name">
- <br>
- <textarea id = "message" class="form-control" placeholder="Your Message Here">
-</textarea>
- <br>
- <button id="send" class="btn btn-success">Send</button>
- </div>
- <div id="messages">
-</div>
+  <p style="
+    text-align: center;"><img src="http://www.acsu.buffalo.edu/~jthus/media/Computer.gif" style="
+    width: 174px;
+    "></p>
+
+
+   <div id="messages">
+  </div>
+  <div class="jumbotron">
+    <br>
+    <input id = "name" class="form-control" placeholder="Name">
+    <br>
+    <textarea id = "message" class="form-control" placeholder="Your Message Here">
+   </textarea>
+    <br>
+    <button id="send" class="btn btn-danger">Send</button>
+  </div>
 </div>
 <script>
 $(() => {
@@ -38,7 +71,7 @@ $(() => {
     })
 function addMessages(message){
   console.log(message);
-   $("#messages").append('<h4>'+message.name+' </h4><p>'+message.message+' </p>')
+   $("#messages").append('<h4>$ '+message.name+' <img class="avatar" src="https://newvitruvian.com/images/pixelated-drawing-zelda.gif"></h4><p>'+message.message+' </p>')
    }
 function getMessages(){
   $.get('https://chilim.herokuapp.com/messages', (data) => {
