@@ -12,28 +12,39 @@
   <script src="/socket.io/socket.io.js"></script>
   <style>
   body{
-    background-color: #052731;
+    background-color: #1e1e37;
   }
   #messages{
-    font-weight: bold;
     max-height: 426px;
-    overflow-y: overlay;
+  overflow-y: overlay;
+  background: #262c53;
+  padding: 38px;
+  border-radius: 14px;
   }
   #messages h4{
-        color: #738c95;
+        color: #cc6369;
   }
   #messages p {
-    color: #b1d401;
-    padding-left: 27px;
+    color: #ffffff;
     font-size: 15px;
-    margin-bottom: 39px;
+  }
+  .box{
+    background: #232244;
+    width: fit-content;
+    padding: 7px 14px 1px 14px;
+    border-radius: 9px;
+    margin-bottom: 30px;
+  }
+  .box span{
+    color: #a0a0a080;
+    font-size: 11px;
   }
   .jumbotron{
-    background: #0a1f25;
-    position: absolute;
-    width: inherit;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    background: #232244;
+  width: -webkit-fill-available;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-image: linear-gradient(to bottom,#583e62,#3e2f57);
   }
   .avatar{
     width: 31px;
@@ -42,10 +53,10 @@
     opacity: 0.5;
   }
   .form-control{
-    background: #052731;
-    color: #b1d402;
-    border: none;
-    font-size: 17px;
+    background: #232244;
+        color: #ffffff;
+        border: none;
+        font-size: 17px;
   }
   @media only screen and (max-width: 768px) {
     .jumbotron{
@@ -89,7 +100,7 @@ $(() => {
     })
 function addMessages(message){
   console.log(message);
-   $("#messages").prepend('<h4>$ '+message.name+' <img class="avatar" src="https://vignette.wikia.nocookie.net/spaceinvaders/images/d/db/Crab_Invader.png/revision/latest?cb=20180814211211"></h4><p>'+message.message+' </p>')
+   $("#messages").prepend('<div class="box"><h4>'+message.name+' <img class="avatar" src="https://vignette.wikia.nocookie.net/spaceinvaders/images/d/db/Crab_Invader.png/revision/latest?cb=20180814211211"></h4><p>'+message.message+' </p><span>'+message.updated_at+'</span></div>')
    }
 function getMessages(){
   $.get('https://mr--robot.herokuapp.com/messages', (data) => {
