@@ -29,6 +29,7 @@ app.post('/messages', (req, res) => {
     if(err)
       sendStatus(500);
     io.emit('message', req.body);
+    io.emit('scroll', true);
     res.sendStatus(200);
   })
 })

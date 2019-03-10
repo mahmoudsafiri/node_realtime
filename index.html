@@ -158,7 +158,7 @@ function sendMessage(message){
    $.post('https://mr--robot.herokuapp.com/messages', message);
    $("#message").val("");
    $("#message").html("");
-   $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
+   // $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
  }
  var socket = io();
 socket.on('message', addMessages);
@@ -167,6 +167,11 @@ socket.on('counter', function (data) {
    $("#counter").text(data.count);
 
  });
+ socket.on('scroll', function (data) {
+
+    $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
+
+  });
 
 $(document).ready(function(){
   setTimeout(function(){   $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000); }, 1000);
