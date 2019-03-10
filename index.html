@@ -150,7 +150,8 @@ function addMessages(message){
 function getMessages(){
   $.get('https://mr--robot.herokuapp.com/messages', (data) => {
    data.forEach(addMessages);
-   })
+  });
+      $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
  }
 function sendMessage(message){
    $.post('https://mr--robot.herokuapp.com/messages', message);
@@ -174,7 +175,7 @@ $(document).ready(function(){
     // var wtf    = $('#messages');
     // var height = wtf[0].scrollHeight;
     // wtf.scrollTop(height);
-    $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
+
   });
 });
 
