@@ -32,9 +32,32 @@ app.post('/messages', (req, res) => {
     res.sendStatus(200);
   })
 })
-io.on('connection', () =>{
-  console.log('a user is connected')
-})
+io.on('connection', function (socket) {
+  var $ipAddress = socket.handshake.address;
+  if (!$ipsConnected.hasOwnProperty($ipAddress)) {
+
+  	$ipsConnected[$ipAddress] = 1;
+
+  	count++;
+
+  	socket.emit('counter', {count:count});
+
+  }
+  console.log("client is connected");
+  /* Disconnect socket */
+
+  socket.on('disconnect', function() {
+
+  	if ($ipsConnected.hasOwnProperty($ipAddress)) {
+
+  		delete $ipsConnected[$ipAddress];
+
+	    count--;
+
+	    socket.emit('counter', {count:count});
+  	}
+  });
+});
 
 // mongoose.connect("mongodb://localhost:27017/real_time");
 const MongoClient = require('mongodb').MongoClient;

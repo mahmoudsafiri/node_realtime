@@ -4,7 +4,7 @@
   <title>Hello Friend!</title>
   <meta charset="utf-8">
   <meta name="description" content="Join the Mr.Robot chat > by mahmoud safiri">
-  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/4b/Mr._Robot_Logo.svg" type="image/gif">
+  <link rel="icon" href="https://purplerobot.co.uk/wp-content/uploads/2018/07/Robot-1_5ecf612746437a6e770f667927d2e5c3.png" type="image/gif">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -113,6 +113,7 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
     margin-top: 45px;
     margin-bottom: 50px;
     "></p>
+    <p id="counter"></p>
 </div>
 <script>
 $(() => {
@@ -138,7 +139,14 @@ function sendMessage(message){
    $("#message").html("");
  }
  var socket = io();
-socket.on('message', addMessages)
+socket.on('message', addMessages);
+socket.on('counter', function (data) {
+
+   $("#counter").text(data.count);
+
+ });
+
+
 </script>
 </body>
 </html>
