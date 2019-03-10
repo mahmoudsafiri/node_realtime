@@ -169,6 +169,7 @@ socket.on('counter', function (data) {
  });
 
 $(document).ready(function(){
+  setTimeout(function(){   $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000); }, 1000);
   $(window).on('load', function(){
     var d = $('#messages');
     d.scrollTop(d.prop("scrollHeight"));
