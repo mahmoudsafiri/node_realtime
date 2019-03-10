@@ -133,9 +133,10 @@ $(window).on('load', function(){
   // var d = $('#messages');
   // d.scrollTop(d.prop("scrollHeight"));
 
-  var wtf    = $('#messages');
-  var height = wtf[0].scrollHeight;
-  wtf.scrollTop(height);
+  // var wtf    = $('#messages');
+  // var height = wtf[0].scrollHeight;
+  // wtf.scrollTop(height);
+  $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
 });
 
 
