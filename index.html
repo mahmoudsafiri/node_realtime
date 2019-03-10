@@ -166,15 +166,18 @@ socket.on('counter', function (data) {
 
  });
 
- $(window).on('load', function(){
-   // var d = $('#messages');
-   // d.scrollTop(d.prop("scrollHeight"));
+$(document).ready(function(){
+  $(window).on('load', function(){
+    // var d = $('#messages');
+    // d.scrollTop(d.prop("scrollHeight"));
 
-   // var wtf    = $('#messages');
-   // var height = wtf[0].scrollHeight;
-   // wtf.scrollTop(height);
-   $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
- });
+    // var wtf    = $('#messages');
+    // var height = wtf[0].scrollHeight;
+    // wtf.scrollTop(height);
+    $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
+  });
+});
+
 </script>
 </body>
 </html>
