@@ -32,6 +32,8 @@ app.post('/messages', (req, res) => {
     res.sendStatus(200);
   })
 })
+var count = 0;
+var $ipsConnected = [];
 io.on('connection', function (socket) {
   var $ipAddress = socket.handshake.address;
   if (!$ipsConnected.hasOwnProperty($ipAddress)) {
