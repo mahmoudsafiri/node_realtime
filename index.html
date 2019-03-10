@@ -137,8 +137,9 @@ $(() => {
       getMessages()
     })
 function addMessages(message){
-  console.log(message);
-   $("#messages").prepend('<div class="box"><h4>'+message.name+' <img class="avatar" src="https://vignette.wikia.nocookie.net/spaceinvaders/images/d/db/Crab_Invader.png/revision/latest?cb=20180814211211"></h4><p>'+message.message+' </p><span>'+message.updated_at+'</span></div>')
+  // console.log(message);
+   $("#messages").append('<div class="box"><h4>'+message.name+' <img class="avatar" src="https://vignette.wikia.nocookie.net/spaceinvaders/images/d/db/Crab_Invader.png/revision/latest?cb=20180814211211"></h4><p>'+message.message+' </p><span>'+message.updated_at+'</span></div>');
+   $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
    }
 function getMessages(){
   $.get('https://mr--robot.herokuapp.com/messages', (data) => {
