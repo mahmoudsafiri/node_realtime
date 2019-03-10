@@ -129,7 +129,7 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
 </div>
 <script>
 
-$(window).load(function() {
+$(window).on('load', function(){
   var d = $('#messages');
   d.scrollTop(d.prop("scrollHeight"));
 });
