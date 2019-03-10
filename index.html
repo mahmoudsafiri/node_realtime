@@ -65,6 +65,23 @@
       position: inherit;
     }
   }
+  #message{
+    float: left;
+  padding-right: 50px;
+      height: 58px;
+  }
+  #send{
+    position: relative;
+  top: -52px;
+  right: 0;
+  float: right;
+  background: #00000000;
+  border: none;
+  }
+  #name{
+        background: #2422455c;
+        width: 50%
+  }
   </style>
 </head>
 <body>
@@ -76,12 +93,12 @@
   </div>
   <div class="jumbotron">
     <br>
-    <input id = "name" class="form-control" placeholder="Name">
+    <input id = "message" class="form-control" placeholder="Your Message Here">
+    <button id="send" class="btn btn-danger"><img src="http://www.myiconfinder.com/uploads/iconsets/256-256-182bdb888bc2849a2f8fe58cc818137a-message.png" style="width: 31px;"></button>
     <br>
-    <textarea id = "message" class="form-control" placeholder="Your Message Here">
-   </textarea>
+     <input id = "name" class="form-control" placeholder="Name">
     <br>
-    <button id="send" class="btn btn-danger">Send</button>
+
   </div>
   <p style="
     text-align: center;"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Mr._Robot_Logo.svg" style="
@@ -109,7 +126,9 @@ function getMessages(){
    })
  }
 function sendMessage(message){
-   $.post('https://mr--robot.herokuapp.com/messages', message)
+   $.post('https://mr--robot.herokuapp.com/messages', message);
+   $("#message").val("");
+   $("#message").html("");
  }
  var socket = io();
 socket.on('message', addMessages)
