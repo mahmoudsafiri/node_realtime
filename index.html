@@ -128,16 +128,21 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
 
 </div>
 <script>
-var d = $('#messages');
-d.scrollTop(d.prop("scrollHeight"));
+
 
 $(() => {
+  var d = $('#messages');
+  d.scrollTop(d.prop("scrollHeight"));
+  
     $("#send").click(()=>{
-       sendMessage({
-          name: $("#name").val(),
-          message:$("#message").val()});
-        })
-      getMessages()
+      if(!empty($("#name").val()) && !empty($("#message").val())){
+          sendMessage({
+             name: $("#name").val(),
+             message:$("#message").val()});
+           })
+         getMessages();
+      }
+
     })
 function addMessages(message){
   // console.log(message);
