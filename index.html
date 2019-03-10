@@ -86,7 +86,7 @@ $(() => {
     })
 function addMessages(message){
   console.log(message);
-   $("#messages").append('<h4>$ '+message.name+' <img class="avatar" src="https://vignette.wikia.nocookie.net/spaceinvaders/images/d/db/Crab_Invader.png/revision/latest?cb=20180814211211"></h4><p>'+message.message+' </p>')
+   $("#messages").prepend('<h4>$ '+message.name+' <img class="avatar" src="https://vignette.wikia.nocookie.net/spaceinvaders/images/d/db/Crab_Invader.png/revision/latest?cb=20180814211211"></h4><p>'+message.message+' </p>')
    }
 function getMessages(){
   $.get('https://chilim.herokuapp.com/messages', (data) => {
