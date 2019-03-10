@@ -20,7 +20,7 @@ var Message = mongoose.model('Message',{
 app.get('/messages', (req, res) => {
   Message.find({},(err, messages)=> {
     res.send(messages);
-  })
+  }).sort({updated_at: 'desc'})
 })
 
 app.post('/messages', (req, res) => {
