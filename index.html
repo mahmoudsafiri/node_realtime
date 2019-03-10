@@ -152,7 +152,7 @@ function getMessages(){
   $.get('https://mr--robot.herokuapp.com/messages', (data) => {
    data.forEach(addMessages);
   });
-      $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
+
  }
 function sendMessage(message){
    $.post('https://mr--robot.herokuapp.com/messages', message);
