@@ -112,10 +112,10 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
   </div>
   <div class="jumbotron">
     <br>
-    <input id = "message" class="form-control" placeholder="Your Message Here">
+    <input id = "message" class="form-control" placeholder="Your Message Here" required>
     <button id="send" class="btn btn-danger"><img src="http://www.myiconfinder.com/uploads/iconsets/256-256-182bdb888bc2849a2f8fe58cc818137a-message.png" style="width: 31px;"></button>
     <br>
-     <input id = "name" class="form-control" placeholder="Name">
+     <input id = "name" class="form-control" placeholder="Name" required>
     <br>
 
   </div>
@@ -128,6 +128,9 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
 
 </div>
 <script>
+var d = $('#messages');
+d.scrollTop(d.prop("scrollHeight"));
+
 $(() => {
     $("#send").click(()=>{
        sendMessage({
@@ -139,8 +142,9 @@ $(() => {
 function addMessages(message){
   // console.log(message);
    $("#messages").append('<div class="box"><h4>'+message.name+' <img class="avatar" src="https://vignette.wikia.nocookie.net/spaceinvaders/images/d/db/Crab_Invader.png/revision/latest?cb=20180814211211"></h4><p>'+message.message+' </p><span>'+message.updated_at+'</span></div>');
-   $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
+
    }
+
 function getMessages(){
   $.get('https://mr--robot.herokuapp.com/messages', (data) => {
    data.forEach(addMessages);
@@ -150,6 +154,7 @@ function sendMessage(message){
    $.post('https://mr--robot.herokuapp.com/messages', message);
    $("#message").val("");
    $("#message").html("");
+   $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
  }
  var socket = io();
 socket.on('message', addMessages);
