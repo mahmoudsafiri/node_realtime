@@ -42,8 +42,11 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
         direction: ltr;
   }
   .box span{
-    color: #a0a0a080;
-    font-size: 11px;
+    color: #a7a7a7;
+    font-size: 9px;
+    position: relative;
+    top: -14px;
+    font-family: monospace;
   }
   .jumbotron{
     background: #232244;
@@ -145,7 +148,17 @@ $(() => {
     })
 function addMessages(message){
   // console.log(message);
-   $("#messages").append('<div class="box"><h4>'+message.name+' <img class="avatar" src="/files/avatar.png"></h4><p>'+message.message+' </p><span>'+message.updated_at+'</span></div>');
+  var monthNames = [
+     “January”, “February”, “March”,
+     “April”, “May”, “June”, “July”,
+     “August”, “September”, “October”,
+     “November”, “December”
+  ];
+  var d = message.updated_at.getDate();
+  var m = monthNames[message.updated_at.getMonth()];
+  var y = message.updated_at.getFullYear();
+
+   $("#messages").append('<div class="box"><h4>'+message.name+' <img class="avatar" src="/files/avatar.png"></h4><p>'+message.message+' </p><span>'+d+'</span></div>');
 
    }
 
