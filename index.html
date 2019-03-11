@@ -154,11 +154,11 @@ function addMessages(message){
      'August', 'September', 'October',
      'November', 'December'
   ];
-  var d = message.updated_at.getDate();
-  var m = monthNames[message.updated_at.getMonth()];
-  var y = message.updated_at.getFullYear();
+  var time = message.updated_at.getTime();
+  // var m = monthNames[message.updated_at.getMonth()];
+  // var y = message.updated_at.getFullYear();
 
-   $("#messages").append('<div class="box"><h4>'+message.name+' <img class="avatar" src="/files/avatar.png"></h4><p>'+message.message+' </p><span>'+d+'</span></div>');
+   $("#messages").append('<div class="box"><h4>'+message.name+' <img class="avatar" src="/files/avatar.png"></h4><p>'+message.message+' </p><span>'+time+'</span></div>');
 
    }
 
