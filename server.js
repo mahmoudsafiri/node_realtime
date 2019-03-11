@@ -30,7 +30,7 @@ app.post('/messages', (req, res) => {
   message.save((err) =>{
     if(err)
       sendStatus(500);
-    io.emit('message', req.body);
+    io.emit('message', message);
     io.emit('scroll', true);
     res.sendStatus(200);
   })
