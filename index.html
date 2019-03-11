@@ -148,17 +148,17 @@ $(() => {
     })
 function addMessages(message){
   // console.log(message);
-  var monthNames = [
-     'January', 'February', 'March',
-     'April', 'May', 'June', 'July',
-     'August', 'September', 'October',
-     'November', 'December'
-  ];
-  var time = message.updated_at.getTime();
+  // var monthNames = [
+  //    'January', 'February', 'March',
+  //    'April', 'May', 'June', 'July',
+  //    'August', 'September', 'October',
+  //    'November', 'December'
+  // ];
+  // var time = message.updated_at.getTime();
   // var m = monthNames[message.updated_at.getMonth()];
   // var y = message.updated_at.getFullYear();
 
-   $("#messages").append('<div class="box"><h4>'+message.name+' <img class="avatar" src="/files/avatar.png"></h4><p>'+message.message+' </p><span>'+time+'</span></div>');
+   $("#messages").append('<div class="box"><h4>'+message.name+' <img class="avatar" src="/files/avatar.png"></h4><p>'+message.message+' </p><span>'+message.updated_at+'</span></div>');
 
    }
 
