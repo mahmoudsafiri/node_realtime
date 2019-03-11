@@ -6,7 +6,7 @@ var io = require('socket.io')(http);
 var mongoose = require('mongoose');
 var path = require('path');
 app.use(express.static(__dirname));
-app.use("/avatar", express.static(path.join(__dirname, 'avatar')));
+app.use("/files", express.static(path.join(__dirname, 'files')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 var Message = mongoose.model('Message',{
