@@ -11,16 +11,37 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <style>
+      /* width */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #1f2831;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
   body{
-    background-color: #1e1e37;
+    background-color: #12191f;
   }
   #messages{
     max-height: 426px;
     overflow-y: scroll;
   height: 426px;
-    background: #303460;
+    background: #182229;
     padding: 38px;
 background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
+background-image:#182229;
     direction: rtl;
         padding-bottom: 0;
   /* border-radius: 14px; */
@@ -34,7 +55,7 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
         margin-top: -8px;
   }
   .box{
-    background: #232244;
+    background: #1f2831;
     width: fit-content;
     padding: 7px 14px 1px 14px;
     border-radius: 20px;
@@ -50,11 +71,11 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
     font-family: monospace;
   }
   .jumbotron{
-    background: #232244;
+    background: #182229;
   width: -webkit-fill-available;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-image: linear-gradient(to bottom,#583e62,#3e2f57);
+  /* background-image: linear-gradient(to bottom,#583e62,#3e2f57); */
   border-radius: 0 !important;
   }
   .avatar{
@@ -86,8 +107,8 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
     margin-top: -30px;
     position: relative;
     border-radius: 0;
-    background: #232244;
-    border-top: 1px solid #403f6d;
+    background: #1f2831;
+    border-top: none;
   }
   #send{
     position: relative;
@@ -98,8 +119,9 @@ background-image: linear-gradient(to top,#303460,#4b4572,#594a74);
     border: none;
   }
   #name{
-        background: #2422455c !important;
-        width: 50%
+    background: #1f2831 !important;
+    width: 50%;
+    margin-top: 18px;
   }
   .counter{
     position: absolute;
