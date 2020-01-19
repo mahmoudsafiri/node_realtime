@@ -38,16 +38,16 @@ passport.use(new LocalStrategy(
     });
   }
 ));
-// app.get('/login', function (req, res)
-// {
-//     res.render('login.html');
-// });
-// app.post('/login',passport.authenticate('local', { successRedirect: '/',failureRedirect: '/login',failureFlash: true })
-// );
-// app.get('/logout', function(req, res){
-//   req.logout();
-//   res.redirect('/');
-// });
+app.get('/login', function (req, res)
+{
+    res.render('login.html');
+});
+app.post('/login',passport.authenticate('local', { successRedirect: '/',failureRedirect: '/login',failureFlash: true })
+);
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 ///////////////
 
 //
