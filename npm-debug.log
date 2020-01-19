@@ -1,0 +1,62 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'passport' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData passport@~0.3.2
+8 silly fetchNamedPackageData passport
+9 silly mapToRegistry name passport
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/passport
+13 verbose request uri https://registry.npmjs.org/passport
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 12:10:17 PM
+16 verbose request id 0eccbe4b11371c7e
+17 http request GET https://registry.npmjs.org/passport
+18 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 104.16.26.35:443
+19 info attempt registry request try #2 at 12:10:59 PM
+20 http request GET https://registry.npmjs.org/passport
+21 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 104.16.18.35:443
+22 info attempt registry request try #3 at 12:12:31 PM
+23 http request GET https://registry.npmjs.org/passport
+24 silly fetchPackageMetaData Error: connect ETIMEDOUT 104.16.20.35:443
+24 silly fetchPackageMetaData     at Object._errnoException (util.js:1022:11)
+24 silly fetchPackageMetaData     at _exceptionWithHostPort (util.js:1044:20)
+24 silly fetchPackageMetaData     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)
+24 silly fetchPackageMetaData  error for passport@~0.3.2 { Error: connect ETIMEDOUT 104.16.20.35:443
+24 silly fetchPackageMetaData     at Object._errnoException (util.js:1022:11)
+24 silly fetchPackageMetaData     at _exceptionWithHostPort (util.js:1044:20)
+24 silly fetchPackageMetaData     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)
+24 silly fetchPackageMetaData   code: 'ETIMEDOUT',
+24 silly fetchPackageMetaData   errno: 'ETIMEDOUT',
+24 silly fetchPackageMetaData   syscall: 'connect',
+24 silly fetchPackageMetaData   address: '104.16.20.35',
+24 silly fetchPackageMetaData   port: 443 }
+25 silly rollbackFailedOptional Starting
+26 silly rollbackFailedOptional Finishing
+27 silly runTopLevelLifecycles Starting
+28 silly runTopLevelLifecycles Finishing
+29 silly install printInstalled
+30 verbose stack Error: connect ETIMEDOUT 104.16.20.35:443
+30 verbose stack     at Object._errnoException (util.js:1022:11)
+30 verbose stack     at _exceptionWithHostPort (util.js:1044:20)
+30 verbose stack     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)
+31 verbose cwd /home/mahmoud/Desktop/projects/node_realtime
+32 error Linux 5.0.0-37-generic
+33 error argv "/usr/bin/node" "/usr/bin/npm" "install" "passport"
+34 error node v8.10.0
+35 error npm  v3.5.2
+36 error code ETIMEDOUT
+37 error errno ETIMEDOUT
+38 error syscall connect
+39 error network connect ETIMEDOUT 104.16.20.35:443
+40 error network This is most likely not a problem with npm itself
+40 error network and is related to network connectivity.
+40 error network In most cases you are behind a proxy or have bad network settings.
+40 error network
+40 error network If you are behind a proxy, please make sure that the
+40 error network 'proxy' config is set properly.  See: 'npm help config'
+41 verbose exit [ 1, true ]

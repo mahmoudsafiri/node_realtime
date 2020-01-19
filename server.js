@@ -40,7 +40,7 @@ passport.use(new LocalStrategy(
 ));
 app.get('/login', function (req, res)
 {
-    res.render('login.html');
+    res.render('login');
     if (err) { return done(err); }
 });
 app.post('/login',passport.authenticate('local', { successRedirect: '/',failureRedirect: '/login',failureFlash: true })
