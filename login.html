@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wizard</title>
+  <title>Wizard | Login</title>
   <meta charset="utf-8">
   <meta name="description" content="With Wizard, you'll get fast, simple, anonymous messaging">
   <link rel="icon" href="/files/logo2.png" type="image/gif">
@@ -150,18 +150,23 @@ background-image:#182229;
 </head>
 <body>
 <div class="container">
-    <p class="counter"><img src="/files/online.png"><span id="counter"></span></p>
 
-
-   <div id="messages">
-  </div>
   <div class="jumbotron">
-    <br>
-    <input id = "message" class="form-control" placeholder="Your Message Here">
-    <button id="send" class="btn btn-danger"><img src="/files/send2.png" style="width: 49px;"></button>
-    <br>
-     <input id = "name" class="form-control" placeholder="Name">
-    <br>
+    <form action="/login" method="post">
+        <div>
+            <label>Username:</label>
+            <input class="form-control" type="text" name="username"/>
+        </div>
+          <br>
+        <div>
+            <label>Password:</label>
+            <input class="form-control" type="password" name="password"/>
+        </div>
+          <br>
+        <div>
+            <input  type="submit" value="Log In"/>
+        </div>
+    </form>
 
   </div>
   <p style="
@@ -174,74 +179,6 @@ background-image:#182229;
   </p>
 
 </div>
-<script>
-$(() => {
-    $("#send").click(()=>{
-        if($.trim($('#name').val()) != '' && $.trim($('#message').val()) != ''){
-          sendMessage({
-             name: $("#name").val(),
-             message:$("#message").val()});
-        }
 
-      });
-
-      getMessages();
-
-    })
-function addMessages(message){
-  // console.log(message);
-  // var monthNames = [
-  //    'January', 'February', 'March',
-  //    'April', 'May', 'June', 'July',
-  //    'August', 'September', 'October',
-  //    'November', 'December'
-  // ];
-  // var time = message.updated_at.getTime();
-  // var m = monthNames[message.updated_at.getMonth()];
-  // var y = message.updated_at.getFullYear();
-
-   $("#messages").append('<div class="box"><h4>'+message.name+' <img class="avatar" src="http://ekladata.com/FN52m-QUL-ZasHwlXE9ZHGJBjYc.gif"></h4><p>'+message.message+' </p><span>'+message.updated_at+'</span></div>');
-
-   }
-
-function getMessages(){
-  $.get('https://mr--robot.herokuapp.com/messages', (data) => {
-   data.forEach(addMessages);
-  });
-
- }
-function sendMessage(message){
-   $.post('https://mr--robot.herokuapp.com/messages', message);
-   $("#message").val("");
-   $("#message").html("");
-   // $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
- }
- var socket = io();
-socket.on('message', addMessages);
-socket.on('counter', function (data) {
-
-   $("#counter").text(data.count);
-
- });
- socket.on('scroll', function (data) {
-
-    $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 1000);
-
-  });
-
-$(document).ready(function(){
-  setTimeout(function(){   $("#messages").animate({ scrollTop: $('#messages').prop("scrollHeight")}, 500); }, 2000);
-  $(window).on('load', function(){
-    var d = $('#messages');
-    d.scrollTop(d.prop("scrollHeight"));
-
-    // var wtf    = $('#messages');
-    // var height = wtf[0].scrollHeight;
-    // wtf.scrollTop(height);
-
-  });
-});
-
-</script>
 </body>
 </html>
