@@ -5,6 +5,9 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
 var path = require('path');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
 app.use(express.static(__dirname));
 app.use("/files", express.static(path.join(__dirname, 'files')));
 app.use(bodyParser.json());
@@ -41,7 +44,6 @@ passport.use(new LocalStrategy(
 app.get('/login', function (req, res)
 {
     res.render('login');
-    if (err) { return done(err); }
 });
 app.post('/login',passport.authenticate('local', { successRedirect: '/',failureRedirect: '/login',failureFlash: true })
 );
